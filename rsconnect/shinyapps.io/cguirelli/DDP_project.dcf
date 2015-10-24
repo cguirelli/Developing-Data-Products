@@ -1,8 +1,8 @@
 name: DDP_project
 account: cguirelli
 server: shinyapps.io
-bundleId: 295768
+bundleId: 295845
 url: https://cguirelli.shinyapps.io/DDP_Project
-when: 1445641815.98577
+when: 1445650925.72859
 asMultiple: FALSE
 asStatic: FALSE

@@ -1,9 +1,10 @@
 library(shiny)
  
 shinyUI(
-    #pageWithSidebar(
+    
+    
         fluidPage(
-        
+                
         tags$head(
             tags$style(HTML("
                         h1 {
@@ -16,14 +17,16 @@ shinyUI(
 
                             "))),    
         
+    
                 
     headerPanel("Home Electricity Consumption"),
     sidebarPanel(
         fileInput('file1', 'Choose File',
                   accept=c('text/csv', 'text/comma-separated-values,text/plain', '.csv')),
+        
         h4("Using the application"),
         HTML("This application load a data file with the energy consumption of a house and presents some information/analysis of the data.<BR>"),
-        HTML("<ol><LI>To use this application just load a data file in <I>Choose file</I>. To start, load <I>example.csv</I> file.<BR>"),
+        HTML("<ol><LI>To use this application just load a data file in <I>Choose file</I>. When started, the application loads the file <I>example.csv</I> file.<BR>"),
         HTML("<LI>Choose one of the panels on the right to get the information needed.<BR></ol>"),
         hr(),
         HTML("<LI>Data file must be type <I>csv</I> with 3 columns labeled:<BR>"),
@@ -59,7 +62,7 @@ shinyUI(
             tabPanel("Prediction",
                      helpText("Select a year and a prediction model to forecast 
                               future consumptions. Rsquared, is a number that 
-                              indicates how well data fit the model "),
+                              indicates how well data fit the model. * Obs.: some predictions may take a while to run in web. "),
                      fluidRow(column(4,
                                      htmlOutput("ano_pred")
                                      ),

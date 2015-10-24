@@ -3,9 +3,11 @@ library(shiny)
 library(ggplot2)
 library(caret)
 
+
 shinyServer(
     function(input, output) {
- 
+        
+
         datasetInput  <- reactive({
             
             # input$file1 will be NULL initially. After the user selects and uploads a 
@@ -16,11 +18,15 @@ shinyServer(
             inFile <- input$file1
             
             if (is.null(inFile))
-                return(NULL)
-            
-            read.csv(inFile$datapath, header=1, sep=";")
+                    #return(NULL)
+                    read.csv("./example.csv", header=1, sep=";")
+                else
+                    read.csv(inFile$datapath, header=1, sep=";")
         })
+    
+  
         
+
     output$contents <- renderTable({datasetInput()})
 
     output$summary <- renderPrint({summary(datasetInput()$EC)})
